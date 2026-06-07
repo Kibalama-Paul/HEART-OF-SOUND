@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects - Heart of Sound Pro.Co</title>
+<!-- Embedded CSS -->
+<style>
+/* Reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #050607;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Aurora gradient background animation */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(270deg, #0d0d3d, #2b005b, #0d0d3d);
+  background-size: 600% 600%;
+  animation: aurora 60s ease infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+@keyframes aurora {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Film grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top:0; left:0;
+  width: 100%; height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat;
+}
+
+/* Main container for all sections */
+main {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* Section styles */
+section {
+  margin-bottom: 80px;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Project cards */
+.project-card {
+  background: rgba(5,6,7,0.4);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 340px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.2s;
+}
+.project-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  border-color: rgba(0,255,255,0.4);
+  transform: translateY(-2px);
+}
+.project-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.project-media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.project-media iframe, .project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+/* For portrait videos (aspect ratio 9:16) */
+.portrait {
+  aspect-ratio: 9/16;
+}
+
+/* Back to top / home button */
+.back-to-top {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #00ffff;
+  color: #000;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s all;
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+}
+.back-to-top:hover {
+  background-color: #00cccc;
+  box-shadow: 0 0 20px #00ffff;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  .project-card {
+    width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Background video from earlier -->
+<div class="video-background" style="position:fixed; inset:0; z-index:-2;">
+  <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; opacity:0.7;">
+    <source src="vid images/Feb-25-2026-1772023705_3145380.MOV" type="video/mp4" />
+  </video>
+</div>
+
+<main>
+
+  <!-- All Projects Section -->
+  <section id="all-projects">
+    <h2>All Projects</h2>
+    <div class="section-content">
+      <!-- Example project: YouTube Video -->
+      <div class="project-card scroll-reveal">
+        <h3>Music Video Shoot</h3>
+<div class="project-media">
+  <iframe 
+    width="1080" 
+    height="1920" 
+    src="https://www.youtube.com/embed/dZbjLi6NxJw?si=EGnuBKKgqPbRDRen" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+      <!-- Example project: Behind the Scenes Image -->
+      <div class="project-card scroll-reveal">
+        <h3>Behind the Scenes: Recording</h3>
+        <img src="vid images/WhatsApp Image 2026-02-23 at 12.36.00.jpeg" alt="Behind the scenes" style="width:100%; border-radius:10px; margin-top:10px;">
+      </div>
+      <!-- More projects can be added here -->
+    </div>
+  </section>
+
+  <!-- Photography Section -->
+  <section id="photography">
+    <h2>Photography</h2>
+    <div class="section-content">
+      <div class="project-card scroll-reveal">
+        <h3>Portrait Session</h3>
+        <img src="https://res.cloudinary.com/dirfcqs1f/image/upload/v1760490775/IMG_7904_wuzrio.jpg" alt="Portrait" style="width:100%; border-radius:10px;">
+      </div>
+      <div class="project-card scroll-reveal">
+        <h3>Landscape Shots</h3>
+        <img src="https://res.cloudinary.com/dirfcqs1f/image/upload/v1748599947/IMG_7081_yyoc4x.jpg" alt="Landscape" style="width:100%; border-radius:10px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Graphics Editing Section -->
+  <section id="graphics">
+    <h2>Graphics</h2>
+    <div class="section-content">
+      <div class="project-card scroll-reveal">
+        <h3>Logo Design</h3>
+        <img src="https://res.cloudinary.com/dirfcqs1f/image/upload/v1748599962/poster_oyussg.jpg" alt="Logo" style="width:100%; border-radius:10px;">
+      </div>
+      <div class="project-card scroll-reveal">
+        <h3>Poster Artwork</h3>
+        <img src="https://res.cloudinary.com/dirfcqs1f/image/upload/v1748599962/poster_oyussg.jpg" alt="Poster" style="width:100%; border-radius:10px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Productions & Behind the Scenes -->
+  <section id="productions">
+    <h2>Productions</h2>
+    <div class="section-content">
+      <div class="project-card scroll-reveal">
+        <h3>Music Video Shoot</h3>
+<div class="project-media">
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/dZbjLi6NxJw?si=EGnuBKKgqPbRDRen" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+      <div class="project-card scroll-reveal">
+        <h3>Behind the Scenes: Event</h3>
+        <div class="project-media">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3?autoplay=1&mute=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Portrait & Landscape -->
+  <section id="video">
+    <h2>Video (Portrait & Landscape)</h2>
+    <div class="section-content">
+      <!-- Landscape video -->
+      <div class="project-card scroll-reveal">
+        <h3>Landscape Video</h3>
+        
+<div class="project-media">
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/dZbjLi6NxJw?si=EGnuBKKgqPbRDRen" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+      </div>
+      <!-- Portrait video -->
+      <div class="project-card scroll-reveal">
+        <h3>Portrait Video</h3>
+        <div class="project-media portrait">
+          <iframe src="https://res.cloudinary.com/dirfcqs1f/video/upload/v1762193474/paulo_fdm1ai.mp4" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Back to Home Button -->
+<div style="text-align:center; margin:40px 0;">
+  <a href="index.html" class="back-to-top">Back to Home</a>
+  
+  <footer class="site-footer">
+  <p>Powered by Paul Technologies</p>
+</footer>
+</div>
+
+<script>
+  // Optional: reveal animations
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = 1;
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html  

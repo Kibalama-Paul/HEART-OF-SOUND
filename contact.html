@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact - Heart of Sound Pro.Co</title>
+<!-- same CSS -->
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Video Background -->
+<div class="video-background">
+  <video autoplay muted loop playsinline>
+    <source src="vid images/Feb-25-2026-1772023705_3145380.MOV" type="video/mp4" />
+  </video>
+</div>
+
+<!-- Content -->
+<div class="content">
+  <h1 class="scroll-reveal">Contact Us</h1>
+  <div style="max-width:600px; width:100%; margin:auto;">
+    <form style="display:flex; flex-direction:column; gap:15px; margin-top:30px;">
+      <input class="scroll-reveal" type="text" placeholder="Name" style="padding:15px; border-radius:10px; border:none; background:rgba(255,255,255,0.05); color:#fff; outline:none;" />
+      <input class="scroll-reveal" type="email" placeholder="Email" style="padding:15px; border-radius:10px; border:none; background:rgba(255,255,255,0.05); color:#fff; outline:none;" />
+      <textarea class="scroll-reveal" placeholder="Message" rows="5" style="padding:15px; border-radius:10px; border:none; background:rgba(255,255,255,0.05); color:#fff; outline:none;"></textarea>
+      <button class="scroll-reveal">Send Message</button>
+    </form>
+  </div>
+  <button class="scroll-reveal" style="margin-top:40px;"><a href="index.html" class="back-button">Back to Home</a></button>
+
+  <footer class="site-footer">
+  <p>Powered by Paul Technologies</p>
+</footer>
+</div>
+
+<script>
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

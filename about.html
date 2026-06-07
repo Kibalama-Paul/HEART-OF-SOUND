@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About - Heart of Sound Pro.Co</title>
+<style>
+/* Reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #050607;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Aurora gradient background animation */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(270deg, #0d0d3d, #2b005b, #0d0d3d);
+  background-size: 600% 600%;
+  animation: aurora 60s ease infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+@keyframes aurora {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Film grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top:0; left:0;
+  width: 100%; height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat;
+}
+
+/* Video background */
+.video-background {
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+/* Content container */
+.content {
+  position: relative;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Headline styles */
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,255,255,0.5);
+}
+
+/* About text styles */
+.about-section {
+  max-width: 800px;
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* Services cards styles */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+  background: rgba(5, 6, 7, 0.4);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  border-color: rgba(0,255,255,0.4);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* Flip card styles */
+.cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background-color: #222;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Buttons - Style for all buttons */
+button, .back-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  background-color: #00ffff;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid #00ffff;
+  transition: box-shadow 0.3s, transform 0.2s, background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .back-button:hover {
+  background-color: #00cccc;
+  box-shadow: 0 0 20px #00ffff;
+  transform: scale(1.05);
+}
+
+button:focus-visible, .back-button:focus-visible {
+  outline: 3px dashed #00ffff;
+  outline-offset: 4px;
+}
+
+/* Utility for centered button with link inside */
+.back-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Scroll reveal styles */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  .card {
+    width: 90%;
+  }
+  /* Footer Styling */
+.site-footer {
+  background-color: #222; /* Dark background color */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.site-footer p {
+  margin: 0;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Video Background -->
+<div class="video-background">
+  <video autoplay muted loop playsinline>
+    <source src="vid images/Feb-25-2026-1772023705_3145380.MOV" type="video/mp4" />
+  </video>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+  <h1 class="scroll-reveal">About Heart of Sound</h1>
+  <div class="about-section" style="max-width:800px; text-align:left;">
+    <p class="scroll-reveal">
+      Heart Of Sound Production Company is a creative media house based in Uganda, dedicated to telling powerful stories through sound and film. We exist to capture moments that matter — music, culture, faith, and human expression — with excellence, intention, and emotional depth.
+      
+      We believe great storytelling begins with listening. That’s why sound is at the heart of everything we do. From live music sessions and worship moments to documentaries and brand stories, we focus on clarity, authenticity, and cinematic quality that connects deeply with audiences.
+      
+      Our work is guided by simplicity, consistency, and purpose. Rather than overproduction, we pursue honest visuals, clean sound, and meaningful narratives that reflect the true essence of every story we tell.
+      
+      At Heart Of Sound, we don’t just create content — we create experiences that resonate, inspire, and endure.
+    </p>
+  </div>
+  
+  <!-- Workers Portfolio Flip Cards -->
+  <div class="cards-container">
+    <!-- Worker 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="vid images/IMG-20241028-WA0000.jpg" alt="Worker 1" />
+        </div>
+        <div class="flip-card-back">
+          <p>Sound Engineer & Producer</p>
+          <p>MWESIGWA DANIEL KALETTE</p>
+        </div>
+      </div>
+    </div>
+    <!-- Worker 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="vid images/_MG_0871.jpg" alt="Worker 2" />
+        </div>
+        <div class="flip-card-back">
+          <p>Filmmaker & Motion Image Colorist</p>
+          <p>MULINDWA KEVIN</p>
+        </div>
+      </div>
+    </div>
+    <!-- Worker 3 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="vid images/IMG_8008.jpg" alt="Worker 3" />
+        </div>
+        <div class="flip-card-back">
+          <p>Photography & Graphics Editor</p>
+          <p>KIBALAMA PAUL</p>
+        </div>
+      </div>
+    </div>
+     <!-- Worker 4 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="vid images/IMG_8008.jpg" alt="Worker 3" />
+        </div>
+        <div class="flip-card-back">
+          <p>Graphics Editor</p>
+          <p>MASEREKA COLLINS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Centered Back to Home Button -->
+  <div class="back-button-container">
+    <a href="index.html" class="back-button">Back to Home</a>
+
+    
+  </div>
+  <footer class="site-footer">
+  <p>Powered by Paul Technologies</p>
+</footer>
+</div>
+
+<!-- Optional: Additional content or contact form can go here -->
+
+<script>
+  // Intersection Observer for scroll reveal animations
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
